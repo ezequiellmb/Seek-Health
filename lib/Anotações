@@ -1,0 +1,251 @@
+*** ANOTAÇÕES ***
+
+**Tudo são Widget
+
+StatelessWidget STL + TAB 
+é um Widget sem estado, texto por exemplo
+
+StatefulWidget STF + TAB
+Manter É um estado
+
+Na casca da APP sempre iremos retornar MaterialApp
+
+
+COMANDOS:
+
+onPressed => Quando algo é pressionado.
+floatingActionButton => Botão
+";" => ponto final
+"," -> separar itens
+
+List _variavel = ['',''];
+
+        FUNÇÕES
+Função void => sem retorno
+** void mensagem(String o, int id){
+  print("seu nome é $o e sua idade $id");
+}
+void main() {
+  mensagem("Ezequiel", 19);  **
+
+  Função return => retorno
+double calc(double salario){
+  var total = salario - (salario * 0.15);
+  return total;
+}
+OU 
+double calc(double salario) => salario - (salario * 0.15);
+
+Funções anonimas:
+void exibirDados(String nome, {int idade, double altura}){
+  print("nome: $nome");
+  print("idade: $idade");
+  print("altura: $altura");
+} //Paramentros opcionais não devem ser declarados por primeiro
+void main() {
+   exibirDados("José",idade: 20, altura: 1.84);
+}
+
+OPERADOR ?? (NULL)
+variavel ?? 0; // se for null atribui o valor 0
+
+
+                CLASSES E OBJETOS
+Planta => CLASSES
+Casa => OBJETOS
+Caracteristicas => Atributos
+Ações => Métodos (o que um objeto pode fazer)
+
+*Criar CLASSES //Primeira letra de cada palavra maiuscula
+class Casa {
+    //atributos
+    String cor;
+    //metodos
+    void abrirJanela(int qtdJanelas){ //parametros podem ser utilizados como nas funções
+        print("Abrir janela da casa $cor");
+        print("Janelas: $qtdJanelas");
+    }
+}
+void main(){
+    String nome;
+    Casa minhaCasa = new Casa(); //Instanciando  //new é opcional em DART
+    minhaCasa.cor = "Amarela";// chamar atributo
+    print(minhaCasa.cor)
+
+    minhaCasa.abrirJanela(5);// chamar métodos
+
+    void abrirJanela(){ //parametros podem ser utilizados como nas funções
+        print("Abrir janela da casa $cor");
+    }
+    void abrirPorta(){ //parametros podem ser utilizados como nas funções
+        print("Abrir porta da casa $cor");
+    }
+    void abrirCasa(){
+        this.abrirJanela;  //this referenciar a metodos e atributos que estão dentro da classe
+        this.abrirPorta;
+    }
+
+    minhaCasa.abrirCasa;
+}
+
+Ex: Autenticar Login e senha do usuário
+
+class Usuario{
+    String usuario;
+    String senha; 
+
+    Usuario(){
+        print("Configurações iniciais do objeto")
+    }
+
+    void autenticar(){
+        var usuario = "admin@gmail.com";
+        var senha = "admin123";
+
+        if(this.usuario == usuario && this.senha == senha){
+            print("usuario autenticado");
+        }else{
+            print("usuario não autenticado");
+        }
+
+    }
+}
+void main(){
+    Usuario admin = Usuario();
+
+    //Digitados pelo usuario do seu app
+    admin.usuario = "admin@gmail.com";
+    admin.senha = "admin123";
+    admin.autenticar();
+}
+
+
+            CONSTRUTORES
+
+É um metodo especial utilidado para dar um valor inicial para o objeto.
+Mesma estrutura de um método, porem o nome é sempre o nome da classe.
+É sempre chamado automáticamente.
+
+    Usuario(Strig usuario, String senha){
+        this.usuario = usuario;
+        this.senha = senha;
+        print("Configurações iniciais do objeto")
+    }
+    OU
+    Usuario(this.usuario, this.senha); // conforme ordem definida dos parametros
+    // construtor nomeado
+    Usuario.diretor(this.usuario, this.senha){
+        this.cargo = "diretor";
+        print("Libera alguns previlégios"+ this.cargo);
+    }
+
+    void main(){
+    Usuario admin = Usuario("admin@gmail.com","admin123");
+    admin.autenticar();
+}
+
+            GETTER e SETTER
+///Getter => Obter           //Configurar atributos e metodos que nao 
+//Setter => Configurar      //quero acessar fora da classe.
+class Conta {
+
+  double saldo = 0;
+  double _saque = 0; //_ variaves devem ser acessadas utilizando getter e setter
+  
+  //Getter => Obter
+  double get saque{
+    //Validações 
+    return this._saque;
+  }
+  //Setter => Configurar
+  set saque(double saque){
+    if(saque > 0 && saque <= 500){
+      this._saque = saque;
+    }else{
+      print("saque não autorizado");
+    } 
+  }
+}
+void main(){
+  Conta conta1 = Conta();
+  conta1.saque = 900;
+  print(conta1.saque);
+}
+
+        HERANÇA
+
+class Animal(){
+    String cor;
+    void dormir(){
+        print("Dormir");
+}
+class Cao extends Animal(){
+    void latir(){
+        print("au au");
+    }
+}
+
+class Passaro extends Animal(){
+    String corBico = "Amarelo";
+}
+
+void main(){
+    Cao dog = Cao();
+    dog.cor = "Branco";
+    dog.latir();
+
+    Passaro piu = Passaro();
+    piu.cor = "Preto";
+    print(piu.corBico);
+}
+
+
+SOBRESCRITA DE MÉTODOS
+
+@override
+void dormir(){
+        print("Dormir como um cão");
+}
+
+MOFIFICADORES
+
+Static utilizar atributos dentro da main, sem precisar instanciar a classe.
+class Config{
+  static String identificador = "ASADASDASD";
+  String notifi = "sim";
+}
+
+void main(){
+  print(Config.identificador);
+}
+
+
+BOTÃO CIRCULAR 
+MaterialButton(
+                    
+color: Colors.blue,
+textColor: Colors.white,
+child: Icon(
+Icons.camera_alt,
+size: 30,
+),
+padding: EdgeInsets.all(64),
+shape: CircleBorder(),
+
+
+ip config: apresentação:192.168.1.70 c.
+teste g. :192.168.2.7
+
+                  
+
+
+
+
+
+
+
+
+
+
+
+
