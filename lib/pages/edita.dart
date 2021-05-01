@@ -23,7 +23,7 @@ class _EditState extends State<Edit> {
   TextEditingController controllerDtNasc;
 
   void edit(){
-    http.post("http://192.168.2.7/seekhealth/edit.php", body:{
+    http.post("", body:{
       "idUsuario": widget.list[widget.index]['idUsuario'],
       "nome": controllerNome.text,
       "CPF": controllerCPF.text,
